@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For My Cutest Girl 💕</title>
+  <title>For My Cutest Girl Nashiee 💕</title>
 
   <!-- Cute Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
@@ -73,18 +73,27 @@
 </head>
 <body>
 
+<script>
+  const name = "Nashiee 💖";
+
+  function show(id){
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script>
+
 <!-- QUESTION -->
 <div class="page active" id="q">
-  <h1>Hiiii my babyyyy 🥺💗</h1>
-  <p>Before we start… answer this honestly okayyy? 😳💕</p>
-  <h1>Do you love me? 💕</h1>
+  <h1>Hiiii my babyyyy Nashiee 🥺💗</h1>
+  <p>Before we start… answer this honestly okayyy Nashiee? 😳💕</p>
+  <h1>Do you love me, Nashiee? 💕</h1>
   <button onclick="show('boxes')">Yesss foreverrr 😘</button>
   <button onclick="show('no')">Nope 😒</button>
 </div>
 
 <!-- NO -->
 <div class="page" id="no">
-  <h1>HOW DARE YOUUU 😤💔</h1>
+  <h1>HOW DARE YOUUU NASHIEEE 😤💔</h1>
   <p>That was the wrong answer missy 😠</p>
   <img src="gun.jpeg">
   <br>
@@ -93,8 +102,8 @@
 
 <!-- BOXES -->
 <div class="page" id="boxes">
-  <h1>YAYYYY 🥰💝</h1>
-  <p>Choose a cute lil box baby 💕</p>
+  <h1>YAYYYY NASHIEEE 🥰💝</h1>
+  <p>Choose a cute lil box Nashiee 💕</p>
   <img src="box.jpeg">
   <div class="boxes">
     <div class="box" onclick="show('b1')">🎁 Compliment Box</div>
@@ -106,17 +115,17 @@
 
 <!-- BOX 1 -->
 <div class="page" id="b1">
-  <h1>HEY YOUUU 😳💖</h1>
+  <h1>HEY YOUUU NASHIEEE 😳💖</h1>
   <p>You are the mostesttttt beautiful girl in the whole entire universe ✨💗
-     I still don’t understand how you’re THIS pretty 🥺</p>
+     I still don’t understand how you’re THIS pretty Nashiee 🥺</p>
   <img src="flower.jpeg">
   <br><button class="back" onclick="show('boxes')">⬅ Go back cutie</button>
 </div>
 
 <!-- BOX 2 -->
 <div class="page" id="b2">
-  <h1>I MISS YOUUU SOOO MUCH 😭💞</h1>
-  <p>Hyyyyy my loveee, I’m missingg youu sooo sooo much 🫂
+  <h1>I MISS YOUUU SOOO MUCH NASHIEEE 😭💞</h1>
+  <p>Hyyyyy my loveee Nashiee, I’m missingg youu sooo sooo much 🫂
      Please accept this warm virtual hug 💕</p>
   <img src="hug.jpeg">
   <br><button class="back" onclick="show('boxes')">⬅ Backkk</button>
@@ -124,8 +133,8 @@
 
 <!-- BOX 3 -->
 <div class="page" id="b3">
-  <h1>BEST GIRLFRIEND EVER 🥹💘</h1>
-  <p>You are the best girlfriend in the worldddddd 😤💗
+  <h1>BEST GIRLFRIEND EVER NASHIEEE 🥹💘</h1>
+  <p>You are the best girlfriend in the worldddddd Nashiee 😤💗
      I’m so lucky to have you it’s unreal 😌</p>
   <img src="cute.jpeg">
   <br><button class="back" onclick="show('boxes')">⬅ Back baby</button>
@@ -133,8 +142,8 @@
 
 <!-- BOX 4 GAME -->
 <div class="page" id="b4">
-  <h1>OKAY CUTIE 😼🎮</h1>
-  <p>Beat me in Tic Tac Toe and steal my heart completely 😏💞</p>
+  <h1>OKAY CUTIE NASHIEEE 😼🎮</h1>
+  <p>Beat me in Tic Tac Toe and steal my heart completely Nashiee 😏💞</p>
   <div class="board" id="board"></div>
   <p id="msg"></p>
   <button class="back" onclick="show('boxes')">⬅ Choose again</button>
@@ -142,10 +151,10 @@
 
 <!-- FINAL -->
 <div class="page" id="final">
-  <h1>WAIFU MATERIAL 💍💖</h1>
+  <h1>WAIFU MATERIAL – NASHIEEE 💍💖</h1>
   <img src="kiss.jpeg">
   <p>
-    You are beautiful in ways words don’t even know how to explain 🥺✨
+    Nashiee, you are beautiful in ways words don’t even know how to explain 🥺✨
     Your smile melts my heart, your laugh makes my day brighter,
     and your love makes my world feel complete 💕
     You are my favorite person, my safe place,
@@ -154,11 +163,6 @@
 </div>
 
 <script>
-  function show(id){
-    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
-
   const board=document.getElementById('board');
   const msg=document.getElementById('msg');
   let cells=Array(9).fill('');
@@ -197,7 +201,7 @@
 
   function victory(){
     over=true;
-    msg.innerText='YAYYYY 😍💖 like this you have won my heart tooooo babeeee';
+    msg.innerText='YAYYYY Nashiee 😍💖 like this you have won my heart tooooo babeeee';
     setTimeout(()=>show('final'),5000);
   }
 
