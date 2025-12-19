@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>For My Love ❤️</title>
+  <title>For My Girlfriend ❤️</title>
   <style>
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #ffd6e8, #fff);
+      background: linear-gradient(135deg, #ffd6e8, #ffffff);
       text-align: center;
       color: #333;
     }
@@ -23,7 +23,7 @@
     p { font-size: 1.1rem; max-width: 700px; margin: 0 auto 20px; }
 
     button {
-      padding: 12px 22px;
+      padding: 12px 24px;
       font-size: 1rem;
       border: none;
       border-radius: 25px;
@@ -32,7 +32,6 @@
       background: #ff6fae;
       color: white;
     }
-    button:hover { opacity: 0.9; }
 
     img {
       max-width: 280px;
@@ -40,18 +39,19 @@
       margin: 20px 0;
     }
 
-    .grid {
+    .boxes {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 20px;
       margin-top: 30px;
     }
 
-    .card {
+    .box {
       background: white;
       border-radius: 20px;
-      padding: 15px;
+      padding: 20px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      cursor: pointer;
     }
 
     /* Tic Tac Toe */
@@ -78,57 +78,67 @@
 <body>
 
 <!-- PAGE 1 -->
-<div class="page active" id="page1">
+<div class="page active" id="q">
   <h1>Do you love me? 💕</h1>
-  <button onclick="loveYes()">Yes</button>
-  <button onclick="loveNo()">No</button>
+  <button onclick="show('boxes')">Yes</button>
+  <button onclick="show('no')">No</button>
 </div>
 
-<!-- PAGE 1 NO -->
-<div class="page" id="pageNo">
+<!-- NO PAGE -->
+<div class="page" id="no">
   <h1>How dare you!! 😤</h1>
-  <img src="photo1.jpg" alt="Angry cute" />
+  <img src="gun.jpeg" />
   <br />
-  <button onclick="backToQuestion()">Try Again</button>
+  <button onclick="show('q')">Try Again</button>
 </div>
 
-<!-- PAGE 2 -->
-<div class="page" id="page2">
-  <h1>For My Beautiful Girl 💖</h1>
-  <div class="grid">
-
-    <div class="card">
-      <p>You are the mostesttt beautiful girl in the world 💕</p>
-      <img src="photo3.jpg" />
-    </div>
-
-    <div class="card">
-      <p>Hyyyyy I am missingg youu soo soo much 🫂<br/>Here is your virtual hug</p>
-      <img src="photo4.jpg" />
-    </div>
-
-    <div class="card">
-      <p>You are the best girlfriend in the worldddddd 💘</p>
-      <img src="photo5.jpg" />
-    </div>
-
-    <div class="card">
-      <p>Beat me in Tic Tac Toe 😼</p>
-      <div class="board" id="board"></div>
-      <p id="gameMsg"></p>
-    </div>
-
+<!-- BOX PAGE -->
+<div class="page" id="boxes">
+  <h1>Choose a Box 💝</h1>
+  <img src="box.jpeg" />
+  <div class="boxes">
+    <div class="box" onclick="show('b1')">🎁 Box 1</div>
+    <div class="box" onclick="show('b2')">🎀 Box 2</div>
+    <div class="box" onclick="show('b3')">💌 Box 3</div>
+    <div class="box" onclick="show('b4')">🎮 Box 4</div>
   </div>
 </div>
 
-<!-- PAGE 3 -->
-<div class="page" id="page3">
+<!-- BOX 1 -->
+<div class="page" id="b1">
+  <h1>You are the mostesttt beautiful girl in the world 💖</h1>
+  <img src="flower.jpeg" />
+</div>
+
+<!-- BOX 2 -->
+<div class="page" id="b2">
+  <h1>Hyyyyy I am missingg youu soo soo much 🫂</h1>
+  <p>Here is your virtual hug</p>
+  <img src="hug.jpeg" />
+</div>
+
+<!-- BOX 3 -->
+<div class="page" id="b3">
+  <h1>You are the best girlfriend in the worldddddd 💘</h1>
+  <img src="kiss.jpeg" />
+</div>
+
+<!-- BOX 4 GAME -->
+<div class="page" id="b4">
+  <h1>Beat me in Tic Tac Toe 😼</h1>
+  <div class="board" id="board"></div>
+  <p id="msg"></p>
+</div>
+
+<!-- FINAL PAGE -->
+<div class="page" id="final">
   <h1>WAIFU MATERIAL 💞</h1>
   <p>
-    You are insanely beautiful, not just by looks but by heart.
-    The way you smile, the way you care, the way you exist — everything about you feels magical.
-    You are warmth, comfort, chaos, and peace all at once.
-    Anyone would be lucky to love you, and I feel like the luckiest person alive.
+    You are beautiful in ways words will never fully explain.
+    Your smile feels like home, your presence feels like peace,
+    and your love feels like magic.
+    Every little thing about you makes my world brighter.
+    I’m so proud to call you mine.
   </p>
 </div>
 
@@ -138,59 +148,54 @@
     document.getElementById(id).classList.add('active');
   }
 
-  function loveYes() { show('page2'); }
-  function loveNo() { show('pageNo'); }
-  function backToQuestion() { show('page1'); }
-
   /* Tic Tac Toe */
   const board = document.getElementById('board');
-  const msg = document.getElementById('gameMsg');
+  const msg = document.getElementById('msg');
   let cells = Array(9).fill('');
   let gameOver = false;
 
-  function render() {
+  function draw() {
     board.innerHTML = '';
-    cells.forEach((c, i) => {
-      const div = document.createElement('div');
-      div.className = 'cell';
-      div.innerText = c;
-      div.onclick = () => move(i);
-      board.appendChild(div);
+    cells.forEach((c,i)=>{
+      const d = document.createElement('div');
+      d.className='cell'; d.innerText=c;
+      d.onclick=()=>play(i);
+      board.appendChild(d);
     });
   }
 
-  function move(i) {
-    if (cells[i] || gameOver) return;
-    cells[i] = 'X';
-    if (checkWin('X')) return win();
-    aiMove();
+  function play(i){
+    if(cells[i]||gameOver) return;
+    cells[i]='X';
+    if(win('X')) return victory();
+    ai();
   }
 
-  function aiMove() {
-    let empty = cells.map((v,i)=>v==''?i:null).filter(v=>v!==null);
-    if (!empty.length) return reset();
-    cells[empty[Math.floor(Math.random()*empty.length)]] = 'O';
-    if (checkWin('O')) return reset();
-    render();
+  function ai(){
+    let e=cells.map((v,i)=>v==''?i:null).filter(v=>v!==null);
+    if(!e.length) return reset();
+    cells[e[Math.floor(Math.random()*e.length)]]='O';
+    if(win('O')) return reset();
+    draw();
   }
 
-  function checkWin(p) {
-    const w = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
-    return w.some(a => a.every(i => cells[i]===p));
+  function win(p){
+    const w=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+    return w.some(a=>a.every(i=>cells[i]===p));
   }
 
-  function win() {
-    gameOver = true;
-    msg.innerText = 'Yayyy like this you have won my heart tooooo babe 💖';
-    setTimeout(()=>show('page3'), 5000);
+  function victory(){
+    gameOver=true;
+    msg.innerText='Yayyy like this you have won my heart tooooo babe 💖';
+    setTimeout(()=>show('final'),5000);
   }
 
-  function reset() {
-    cells = Array(9).fill('');
-    render();
+  function reset(){
+    cells=Array(9).fill('');
+    draw();
   }
 
-  render();
+  draw();
 </script>
 
 </body>
