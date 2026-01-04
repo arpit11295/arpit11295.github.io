@@ -1,2 +1,9 @@
-print("GET LOST!!!")
-print("YOU ARE NOT WROTHY FOR ITT!!!!!")
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Message</title>
+</head>
+<body>
+  <h1>Get lost. You are not worthy.</h1>
+</body>
+</html>
