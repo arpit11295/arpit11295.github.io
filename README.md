@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
   <title>Message</title>
@@ -6,5 +6,4 @@
 <body>
   <h1>Get lost!!!!!</h1>
   <h2>You are not worthy for itt!!!!<h2>
-</body>
-</html>
+
